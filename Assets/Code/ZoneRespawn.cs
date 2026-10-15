@@ -8,8 +8,9 @@ public class ZoneRespawn : MonoBehaviour
     {
         var gameobject = other.gameObject;
         
-        if (gameobject.tag == "Player")
+        if (gameobject.CompareTag("Player"))
         {
+            gameobject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
             gameobject.GetComponent<PlayerRespawn>().ReSpawn();
         }
     }

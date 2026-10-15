@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 public class ChunkPlacer : MonoBehaviour
 {
+    [SerializeField] private int _chunkSize;
+    
     [SerializeField] private GameObject _firstPlain;
     [SerializeField] private GameObject _plainPrefab;
     [SerializeField] private GameObject _zoneRespawn;
@@ -27,19 +29,19 @@ public class ChunkPlacer : MonoBehaviour
         var plain = Instantiate(_plainPrefab, lastPlain.transform.position + Vector3.forward * 30, lastPlain.transform.rotation);
         var chunk = Instantiate(_chunkPrefabs[Random.Range(0, _chunkPrefabs.Length)], lastPlain.transform.position + Vector3.forward * 15, lastPlain.transform.rotation);
         
-        _zoneRespawn.transform.position = lastPlain.transform.position + Vector3.forward * 15 + Vector3.down * 5;
-        
         _spawnedPlain.Add(plain);
         _spawnedChunks.Add(chunk);
+        
+        _zoneRespawn.transform.position = lastPlain.transform.position + Vector3.down * 5;
 
-        if (_spawnedPlain.Count >= 3)
+        if (_spawnedPlain.Count > _chunkSize)
         {
             Destroy(_spawnedPlain[0]);
             
             _spawnedPlain.RemoveAt(0);
         }
 
-        if (_spawnedChunks.Count >= 2)
+        if (_spawnedChunks.Count > _chunkSize - 1)
         {
             Destroy(_spawnedChunks[0]);
             

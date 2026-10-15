@@ -4,9 +4,9 @@ public class PlainGetSpawn : MonoBehaviour
 {
     [SerializeField] private Transform _spawn;
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        var GameObject = collision.gameObject;
+        var GameObject = other.gameObject;
         
         if (GameObject.tag == "Player")
         {

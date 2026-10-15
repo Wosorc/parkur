@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class PlainSetChunk : MonoBehaviour
 {
-    private ChunkPlacer _chunkPlacer;
+    [SerializeField] private ChunkPlacer _chunkPlacer;
 
     public void Start()
     {
         _chunkPlacer = FindFirstObjectByType<ChunkPlacer>();
     }
-
-    public void OnCollisionEnter(Collision collision)
+    
+    public void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             _chunkPlacer.SpawnChunk();
         }
