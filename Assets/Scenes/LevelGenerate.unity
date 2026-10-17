@@ -653,8 +653,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 100, y: 1, z: 130}
-  m_Center: {x: 0, y: 0, z: 15}
+  m_Size: {x: 100, y: 1, z: 160}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1957368292
 Transform:
   m_ObjectHideFlags: 0
@@ -1032,9 +1032,16 @@ MonoBehaviour:
   _rigidbody: {fileID: 2111034793}
   _capsuleCollider: {fileID: 2111034794}
   _cameraTransform: {fileID: 1805493802}
-  _runSpeed: 18.75
+  _runSpeed: 18.5
   _walkSpeed: 12.5
   _jumpForce: 50
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  _crouchCenter: {x: 0, y: 0.5, z: 0}
+  _standCenter: {x: 0, y: 0, z: 0}
+  _crouchHeight: 1
+  _standHeight: 2
 --- !u!54 &2111034793
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1061,7 +1068,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!136 &2111034794
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1368,7 +1375,7 @@ PrefabInstance:
       objectReference: {fileID: 789264210}
     - target: {fileID: 2522673260611823756, guid: c4e185c3a87de7f44b78169c3ff2f707, type: 3}
       propertyPath: m_VersionIndex
-      value: 1600
+      value: 1621
       objectReference: {fileID: 0}
     - target: {fileID: 4076303283537686704, guid: c4e185c3a87de7f44b78169c3ff2f707, type: 3}
       propertyPath: _chunkPlacer
@@ -1380,7 +1387,7 @@ PrefabInstance:
       objectReference: {fileID: 2025671538}
     - target: {fileID: 4721768056446871605, guid: c4e185c3a87de7f44b78169c3ff2f707, type: 3}
       propertyPath: m_VersionIndex
-      value: 7133
+      value: 7154
       objectReference: {fileID: 0}
     - target: {fileID: 5205605406534191252, guid: c4e185c3a87de7f44b78169c3ff2f707, type: 3}
       propertyPath: m_LocalPosition.x
